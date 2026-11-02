@@ -1,0 +1,81 @@
+.section {
+  padding-top: var(--section-gap);
+}
+
+.heading {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem 1.5rem;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  column-gap: 1.5rem;
+  align-items: start;
+}
+
+.mark {
+  position: relative;
+  width: 10rem;
+  aspect-ratio: 2 / 1;
+  background: var(--surface);
+}
+
+.markLogo {
+  padding: 0.6rem;
+  object-fit: contain;
+}
+
+.details {
+  grid-column: -2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.credential {
+  font-size: var(--step-lead);
+  font-family: var(--font-text);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+.major,
+.school {
+  font-size: var(--step-body);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.75rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 900px) {
+  .entry {
+    grid-template-columns: 6rem minmax(0, 1fr);
+    column-gap: 1rem;
+  }
+
+  .mark {
+    width: 6rem;
+  }
+
+  .markLogo {
+    padding: 0.4rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}

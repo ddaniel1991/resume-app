@@ -1,0 +1,50 @@
+[
+ {
+  "file": "public/images/found/juno-pier.jpg",
+  "media": "image",
+  "ref": "commons:48242044",
+  "title": "Juno Beach Florida Pier",
+  "creator": "Derek Ramsey",
+  "creatorUrl": null,
+  "date": "2016-04-15",
+  "license": "CC BY-SA 4.0",
+  "licenseCode": "by-sa",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "creditRequired": true,
+  "page": "https://commons.wikimedia.org/wiki/File:Juno_Beach_Florida_Pier.JPG",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Juno_Beach_Florida_Pier.JPG/3840px-Juno_Beach_Florida_Pier.JPG",
+  "width": 3840,
+  "height": 2637,
+  "bytes": 2420191,
+  "credit": "\"Juno Beach Florida Pier\" by Derek Ramsey, CC BY-SA 4.0, via Wikimedia Commons",
+  "notes": [
+   "Share-alike: an altered version (recoloured, combined with other pictures) must be shared under the same licence."
+  ],
+  "saved": "2026-11-01T01:21:58.387Z"
+ },
+ {
+  "file": "public/images/found/capitols-tallahassee.jpg",
+  "media": "image",
+  "ref": "commons:27980548",
+  "title": "Florida’s Historic Capitol and Florida State Capitol 2",
+  "creator": "Michael Rivera",
+  "creatorUrl": null,
+  "date": "Taken on 31 August 2013, 12:59:36",
+  "license": "CC BY-SA 3.0",
+  "licenseCode": "by-sa",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "creditRequired": true,
+  "page": "https://commons.wikimedia.org/wiki/File:Florida%E2%80%99s_Historic_Capitol_and_Florida_State_Capitol_2.JPG",
+  "via": "Wikimedia Commons",
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Florida%E2%80%99s_Historic_Capitol_and_Florida_State_Capitol_2.JPG/3840px-Florida%E2%80%99s_Historic_Capitol_and_Florida_State_Capitol_2.JPG",
+  "width": 3840,
+  "height": 2880,
+  "bytes": 1692875,
+  "credit": "\"Florida’s Historic Capitol and Florida State Capitol 2\" by Michael Rivera, CC BY-SA 3.0, via Wikimedia Commons",
+  "notes": [
+   "Share-alike: an altered version (recoloured, combined with other pictures) must be shared under the same licence."
+  ],
+  "saved": "2026-11-01T00:25:25.846Z"
+ }
+]

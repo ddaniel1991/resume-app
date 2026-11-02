@@ -1,16 +1,215 @@
-html,
+:root {
+  --bg: #f7f9f8;
+  --surface: #ebf0ee;
+  --surface-strong: #d6e2de;
+  --ink: #06525c;
+  --muted: #2f737d;
+  --accent: #06525c;
+  --accent-ink: #f7f9f8;
+  --field: #06525c;
+  --field-ink: #f7f9f8;
+  --field-muted: #b9d3d2;
+
+  --step-small: 0.875rem;
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(2.5rem, 1.2rem + 5vw, 5.5rem);
+  --step-display: clamp(4.5rem, 1rem + 9.5vw, 10rem);
+
+  --margin: clamp(1.25rem, 2.2vw, 2rem);
+  --section-gap: clamp(7.5rem, 12vw, 12rem);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (min-width: 901px) {
+  :root {
+    --margin: 10vw;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+.site {
+  --font-display: var(--font-barlow-condensed), 'Arial Narrow', sans-serif;
+  --font-text: var(--font-barlow), 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-text);
+}
+
 body {
-  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: var(--step-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 a {
   color: inherit;
-  text-decoration: none;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
 }
 
-* {
-  box-sizing: border-box;
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+section[id],
+footer[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+.frame {
+  padding-inline: var(--margin);
+}
+
+.section-heading {
+  font-size: var(--step-head);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0 1.5rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-text);
+  font-size: var(--step-body);
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 160ms var(--ease-out), background-color 160ms ease;
+}
+
+.button:hover {
+  background: #043d45;
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.text-link {
+  font-weight: 500;
+  text-decoration-line: underline;
+  text-decoration-color: currentColor;
+  transition: text-underline-offset 160ms var(--ease-out);
+}
+
+.text-link:hover {
+  text-underline-offset: 0.35em;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: inherit;
+  transition: transform 160ms var(--ease-out);
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+}
+
+.social-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.social-list-labelled .social-link {
+  width: auto;
+  gap: 0.6rem;
+  font-weight: 500;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] > * {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
+  }
+
+  .js [data-reveal].is-visible > *,
+  .reveal-all [data-reveal] > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  .js [data-reveal] > :nth-child(2) { transition-delay: 80ms; }
+  .js [data-reveal] > :nth-child(3) { transition-delay: 160ms; }
+  .js [data-reveal] > :nth-child(4) { transition-delay: 240ms; }
+  .js [data-reveal] > :nth-child(5) { transition-delay: 320ms; }
+  .js [data-reveal] > :nth-child(n + 6) { transition-delay: 400ms; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .button,
+  .text-link,
+  .social-link {
+    transition: none;
+  }
 }

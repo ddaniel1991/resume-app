@@ -1,0 +1,237 @@
+.hero {
+  --p: 0;
+  --window-w: min(36vw, calc((100svh - 13rem) * 0.8));
+  --window-h: calc(var(--window-w) * 1.25);
+  --inset-y: calc((100svh - var(--window-h)) / 2);
+  --inset-x: calc(50% - var(--window-w) / 2);
+  position: relative;
+  height: 290svh;
+}
+
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.window {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(calc(var(--inset-y) * (1 - var(--p))) calc(var(--inset-x) * (1 - var(--p))));
+  background: var(--surface);
+}
+
+.picture {
+  object-fit: cover;
+  object-position: 62% 50%;
+  transform: scale(calc(1.12 - var(--p) * 0.12));
+  animation: settle 2.4s var(--ease-out) backwards;
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    scale: 1.06;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.name,
+.aside {
+  position: absolute;
+  bottom: var(--inset-y);
+  opacity: calc(1 - var(--p) * 2.6);
+  transform: translateY(calc(var(--p) * -4rem));
+}
+
+.name {
+  left: var(--margin);
+  max-width: calc(var(--inset-x) - var(--margin) - 1.5rem);
+  font-size: min(var(--step-display), calc((50vw - var(--window-w) / 2 - var(--margin) - 1.5rem) / 2.6));
+  line-height: 0.86;
+  text-transform: uppercase;
+  margin-bottom: -0.08em;
+  animation: rise 900ms var(--ease-out) 120ms backwards;
+}
+
+.aside {
+  right: var(--margin);
+  width: calc(var(--inset-x) - var(--margin) - 1.5rem);
+  max-width: 21rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  animation: rise 900ms var(--ease-out) 260ms backwards;
+}
+
+.hero[data-complete] .name,
+.hero[data-complete] .aside {
+  visibility: hidden;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    translate: 0 24px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.role {
+  font-size: var(--step-lead);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.tagline {
+  font-size: var(--step-body);
+  line-height: 1.45;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+
+.intro {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100svh;
+  margin-top: -100svh;
+  background: var(--bg);
+  padding: var(--section-gap) var(--margin) 0;
+}
+
+.introInner {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.portrait {
+  grid-column: 1 / span 4;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 12%;
+}
+
+.introText {
+  grid-column: 6 / span 7;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.introText > :last-child {
+  margin-top: 1rem;
+}
+
+.summary {
+  font-size: var(--step-lead);
+  line-height: 1.35;
+  max-width: 38ch;
+  margin-bottom: 0.5rem;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.stack li {
+  padding: 0.3rem 0.75rem;
+  background: var(--surface);
+}
+
+.summaryDetail {
+  max-width: 58ch;
+  line-height: 1.65;
+}
+
+.about {
+  max-width: 60ch;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    --window-w: min(78vw, 34svh);
+    --inset-y: 0px;
+    --inset-x: calc(50% - var(--window-w) / 2);
+    height: 240svh;
+  }
+
+  .window {
+    clip-path: inset(
+      calc(30svh * (1 - var(--p)))
+      calc(var(--inset-x) * (1 - var(--p)))
+      calc((70svh - var(--window-h)) * (1 - var(--p)))
+    );
+  }
+
+  .name {
+    top: 4.75rem;
+    bottom: auto;
+    max-width: none;
+    font-size: min(21vw, 9.5svh, 8rem);
+    margin: 0;
+  }
+
+  .aside {
+    left: var(--margin);
+    right: var(--margin);
+    bottom: auto;
+    width: auto;
+    max-width: none;
+    gap: 0.9rem;
+    top: calc(30svh + var(--window-h) + 1.25rem);
+  }
+
+
+  .actions .button {
+    flex: 1 1 auto;
+  }
+
+  .introInner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .portrait,
+  .introText {
+    grid-column: 1 / -1;
+  }
+
+  .portrait {
+    width: 62%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .picture,
+  .name,
+  .aside {
+    animation: none;
+  }
+
+  .picture {
+    transform: none;
+  }
+}

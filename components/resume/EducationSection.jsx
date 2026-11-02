@@ -1,80 +1,32 @@
-import React from 'react'
-import {Col, Row} from 'react-bootstrap'
-import {Card, CardContent, CardMedia, Typography} from '@mui/material'
-import educationHistory from '../../educationHistory.json'
+import Image from 'next/image'
+import styles from './EducationSection.module.css'
 
-export default function EducationSection() {
+export default function EducationSection({ schools }) {
   return (
-    <>
-        <Row>
-            <Col>
-                <Card className='schoolCard'>
-                    <CardMedia
-                        component="img"
-                        height="240"
-                        image="/images/hs_grad_photo.jpeg"
-                        alt="High School Graduation Photo"
-                    />
-                     <CardContent>
-                        <Typography align='center' gutterBottom variant="h5" component="div">
-                            {educationHistory[0].school}
-                        </Typography>
-                        <Typography align='center' variant='subtitle1' component="div">
-                            {educationHistory[0].diploma}
-                        </Typography>
-                        <Typography align='center' variant="body2" color="text.secondary">
-                            {educationHistory[0].startMonth + " " + educationHistory[0].startYear + " - " + educationHistory[0].endMonth + " " + educationHistory[0].endYear}
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Col>
-            <Col>
-                <Card className='schoolCard'>
-                    <CardMedia
-                        component="img"
-                        height="240"
-                        image="/images/aa_grad_photo.jpeg"
-                        alt="AA Graduation Photo"
-                    />
-                     <CardContent>
-                        <Typography align='center' gutterBottom variant="h5" component="div">
-                            {educationHistory[1].school}
-                        </Typography>
-                        <Typography align='center' variant='subtitle1' component="div">
-                            {educationHistory[1].diploma}
-                        </Typography>
-                        <Typography align='center' variant="body2" color="text.secondary">
-                            {educationHistory[1].startMonth + " " + educationHistory[1].startYear + " - " + educationHistory[1].endMonth + " " + educationHistory[1].endYear}
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Col>
-            <Col>
-                <Card className='schoolCard'>
-                    <CardMedia
-                        component="img"
-                        height="240"
-                        image="/images/work-in-progress.jpg"
-                        alt="Work In Progress"
-                    />
-                     <CardContent>
-                        <Typography align='center' gutterBottom variant="h5" component="div">
-                            {educationHistory[2].school}
-                        </Typography>
-                        <Typography align='center' variant='subtitle1' component="div">
-                            {educationHistory[2].diploma + ": "}
-                        </Typography>
-                        <Typography align='center' variant='subtitle2' component='div'>
-                            {educationHistory[2].major}
-                        </Typography>
-                        <Typography align='center' variant="body2" color="text.secondary">
-                            {educationHistory[2].startMonth + " " + educationHistory[2].startYear + " - " + educationHistory[2].endMonth + " " + educationHistory[2].endYear}
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </Col>
-        </Row>
-    </>
+    <section id="education" aria-labelledby="education-heading" className={`frame ${styles.section}`}>
+      <div data-reveal>
+        <h2 id="education-heading" className={`section-heading ${styles.heading}`}>Education</h2>
+      </div>
+      <ul className={styles.list}>
+        {schools.map((school) => (
+          <li key={school.id} className={styles.entry} data-reveal>
+            {school.logo ? (
+              <span className={styles.mark}>
+                <Image src={school.logo} alt="" fill sizes="10rem" className={styles.markLogo} />
+              </span>
+            ) : null}
+            <div className={styles.details}>
+              <h3 className={styles.credential}>{school.credential}</h3>
+              {school.major ? <p className={styles.major}>{school.major}</p> : null}
+              <p className={styles.school}>{school.school}</p>
+              <p className={styles.meta}>
+                {school.location ? <span>{school.location}</span> : null}
+                <span>{`${school.start} – ${school.end}`}</span>
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
   )
 }
-

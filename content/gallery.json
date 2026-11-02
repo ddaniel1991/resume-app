@@ -1,0 +1,26 @@
+[
+  {
+    "id": "pasta-class",
+    "image": "/images/about/pasta-class.jpg",
+    "alt": "David in an I love pasta apron, sealing ravioli by hand at a wooden table in a rustic kitchen",
+    "place": "Tuscany, Italy"
+  },
+  {
+    "id": "florence-street",
+    "image": "/images/about/florence-street.jpg",
+    "alt": "David walking away from the camera down a narrow stone street lined with old buildings",
+    "place": "Florence, Italy"
+  },
+  {
+    "id": "lisbon-marina",
+    "image": "/images/about/lisbon-marina.jpg",
+    "alt": "David smiling at a sunny marina in Lisbon, with the red 25 de Abril bridge spanning the river behind him",
+    "place": "Lisbon, Portugal"
+  },
+  {
+    "id": "ocean-sunset",
+    "image": "/images/about/ocean-sunset.jpg",
+    "alt": "David standing by the ocean in warm evening light as the sun goes down",
+    "place": "North Palm Beach, Florida"
+  }
+]

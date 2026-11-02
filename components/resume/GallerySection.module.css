@@ -1,0 +1,70 @@
+.section {
+  --ink: var(--field-ink);
+  --muted: var(--field-muted);
+  padding-block: clamp(5rem, 9vw, 8rem);
+  background: var(--field);
+  color: var(--ink);
+}
+
+.heading {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.photos {
+  --gap: 1.5rem;
+  --columns: 4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem var(--gap);
+}
+
+.item {
+  width: calc((100% - (var(--columns) - 1) * var(--gap)) / var(--columns));
+}
+
+.figure {
+  margin: 0;
+}
+
+.photo {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 900ms var(--ease-out);
+}
+
+.figure:hover .image {
+  transform: scale(1.03);
+}
+
+.place {
+  padding-top: 0.75rem;
+  color: var(--muted);
+  font-size: var(--step-small);
+  font-weight: 500;
+}
+
+@media (max-width: 1100px) {
+  .photos {
+    --columns: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .photos {
+    --columns: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image {
+    transition: none;
+  }
+}

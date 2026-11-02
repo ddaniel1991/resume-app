@@ -1,0 +1,20 @@
+[
+  {
+    "id": "pbsc-associate-of-arts",
+    "school": "Palm Beach State College",
+    "logo": "/images/logos/palm-beach-state-college.png",
+    "location": "Lake Worth, FL",
+    "credential": "Associate of Arts",
+    "start": "January 2020",
+    "end": "December 2021"
+  },
+  {
+    "id": "dwyer-high-school",
+    "school": "William T. Dwyer High School",
+    "logo": "/images/logos/dwyer-high-school.png",
+    "location": "",
+    "credential": "High School Diploma",
+    "start": "August 2005",
+    "end": "May 2009"
+  }
+]

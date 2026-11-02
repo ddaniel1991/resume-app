@@ -1,0 +1,66 @@
+[
+  {
+    "category": "Languages",
+    "skills": [
+      { "name": "Java", "icon": "java" },
+      { "name": "C#", "icon": "csharp" },
+      { "name": "JavaScript", "icon": "javascript" },
+      { "name": "TypeScript", "icon": "typescript" },
+      { "name": "Python", "icon": "python" },
+      { "name": "SQL", "icon": "sql" },
+      { "name": "C++", "icon": "cplusplus" }
+    ]
+  },
+  {
+    "category": "Backend",
+    "skills": [
+      { "name": "Spring Boot", "icon": "springboot" },
+      { "name": "Hibernate/JPA", "icon": "hibernate" },
+      { "name": "MyBatis", "icon": "mybatis" },
+      { "name": "Node.js", "icon": "nodejs" },
+      { "name": "Express", "icon": "express" },
+      { "name": "REST APIs", "icon": "rest" },
+      { "name": "OpenAPI", "icon": "openapi" }
+    ]
+  },
+  {
+    "category": "Frontend",
+    "skills": [
+      { "name": "React", "icon": "react" },
+      { "name": "Next.js", "icon": "nextjs" },
+      { "name": "Redux", "icon": "redux" },
+      { "name": "Responsive Web Development", "icon": "responsive" },
+      { "name": "HTML5", "icon": "html" },
+      { "name": "CSS", "icon": "css" },
+      { "name": "Bootstrap", "icon": "bootstrap" },
+      { "name": "Sass", "icon": "sass" },
+      { "name": "Material UI", "icon": "mui" }
+    ]
+  },
+  {
+    "category": "Data & Tooling",
+    "skills": [
+      { "name": "PostgreSQL", "icon": "postgresql" },
+      { "name": "SQL Server", "icon": "sqlserver" },
+      { "name": "Maven", "icon": "maven" },
+      { "name": "Git", "icon": "git" },
+      { "name": "Docker", "icon": "docker" },
+      { "name": "Kubernetes", "icon": "kubernetes" },
+      { "name": "AWS/CloudFront", "icon": "aws" },
+      { "name": "Nexus", "icon": "nexus" },
+      { "name": "PDFBox", "icon": "pdfbox" },
+      { "name": "MongoDB", "icon": "mongodb" }
+    ]
+  },
+  {
+    "category": "Testing & AI",
+    "skills": [
+      { "name": "JUnit", "icon": "junit" },
+      { "name": "Jest", "icon": "jest" },
+      { "name": "TDD", "icon": "tdd" },
+      { "name": "AI coding agents (Claude Code)", "icon": "ai-agents" },
+      { "name": "MCP servers", "icon": "mcp" },
+      { "name": "Small-model training", "icon": "model-training" }
+    ]
+  }
+]

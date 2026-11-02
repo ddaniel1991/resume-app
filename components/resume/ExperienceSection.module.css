@@ -1,0 +1,368 @@
+.section {
+  padding-top: var(--section-gap);
+}
+
+.head {
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.featured {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.pin {
+  grid-column: 1 / span 5;
+  position: sticky;
+  top: 4.5rem;
+  height: calc(100svh - 4.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.roleHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.company {
+  font-size: var(--step-head);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.companyLogo {
+  width: min(28rem, 100%);
+  margin-bottom: 1rem;
+}
+
+.companyLogo img {
+  width: 100%;
+  height: auto;
+}
+
+.position strong {
+  font-weight: 500;
+}
+
+.location {
+  color: var(--muted);
+}
+
+.previously {
+  color: var(--muted);
+}
+
+.previously strong {
+  font-weight: 500;
+}
+
+.dates {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+.highlights {
+  grid-column: 7 / span 6;
+  display: flex;
+  flex-direction: column;
+}
+
+.highlights li {
+  padding: 1.25rem 1.5rem;
+  margin-inline: -1.5rem;
+  cursor: default;
+  transition: background-color 300ms ease;
+}
+
+.highlights li:focus-visible {
+  outline-offset: -3px;
+}
+
+.highlights .activeHighlight {
+  background: var(--surface);
+}
+
+.highlights li:nth-child(even) {
+  background: var(--field);
+  color: var(--field-ink);
+}
+
+.highlights li:nth-child(even).activeHighlight {
+  background: #043d45;
+}
+
+.highlights li:nth-child(even):focus-visible {
+  outline-color: var(--field-ink);
+}
+
+.notes {
+  grid-column: 7 / span 6;
+  max-width: 60ch;
+}
+
+.earlier {
+  margin-top: var(--section-gap);
+  padding-block: clamp(5rem, 9vw, 8rem);
+  background: var(--field);
+  color: var(--field-ink);
+}
+
+.leadIn {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-head);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.intro {
+  max-width: 68rem;
+  margin: calc(clamp(2.5rem, 5vw, 4rem) * -0.5) auto clamp(3rem, 6vw, 4.5rem);
+  color: var(--field-ink);
+  font-size: var(--step-body);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.lineUp {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr) auto;
+  column-gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+.mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 10rem;
+  aspect-ratio: 2 / 1;
+  background: color-mix(in srgb, var(--field-ink) 9%, transparent);
+}
+
+.markLogo {
+  padding: 0.75rem 0.6rem;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.markInitials {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--field-ink);
+}
+
+.rowBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: 62ch;
+  color: var(--field-muted);
+}
+
+.rowCompany {
+  font-family: var(--font-text);
+  font-size: var(--step-lead);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.25;
+  color: var(--field-ink);
+}
+
+.rowPosition strong {
+  font-weight: 500;
+  color: var(--field-ink);
+}
+
+.rowPosition .location {
+  color: var(--field-muted);
+}
+
+.rowHighlights {
+  margin-top: 0.4rem;
+  color: var(--field-ink);
+}
+
+.rowDates {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.tenure {
+  color: var(--field-muted);
+  font-size: var(--step-small);
+}
+
+.toggleRoles {
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  margin-left: calc(10rem + clamp(1.5rem, 3vw, 2.5rem));
+  min-height: 3.25rem;
+  padding: 0 1.5rem;
+  border: 0;
+  background: var(--field-ink);
+  color: var(--field);
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 160ms var(--ease-out), background-color 160ms ease;
+}
+
+.toggleRoles:hover {
+  background: var(--field-muted);
+}
+
+.toggleRoles:active {
+  transform: scale(0.97);
+}
+
+.toggleRoles:focus-visible {
+  outline-color: var(--field-ink);
+}
+
+.story summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  color: var(--field-ink);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+  list-style: none;
+  transition: text-underline-offset 160ms var(--ease-out);
+}
+
+.story summary::-webkit-details-marker {
+  display: none;
+}
+
+.story summary::after {
+  content: '+';
+  font-size: 1.25em;
+  line-height: 1;
+  transition: transform 200ms var(--ease-out);
+}
+
+.story[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.story summary:hover {
+  text-underline-offset: 0.35em;
+}
+
+.story summary:focus-visible {
+  outline-color: var(--field-ink);
+}
+
+.story p {
+  padding-top: 0.25rem;
+}
+
+@media (max-width: 900px) {
+  .featured {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .pin {
+    display: contents;
+  }
+
+  .roleHeading {
+    margin-bottom: 1.5rem;
+  }
+
+  .highlights,
+  .notes {
+    grid-column: 1;
+  }
+
+  .highlights li {
+    margin-inline: calc(var(--margin) * -1);
+    padding-inline: var(--margin);
+  }
+
+  .row {
+    grid-template-columns: 6rem minmax(0, 1fr);
+    row-gap: 0.5rem;
+  }
+
+  .mark {
+    width: 6rem;
+    grid-row: span 2;
+  }
+
+  .markLogo {
+    padding: 0.45rem 0.35rem;
+  }
+
+  .markInitials {
+    font-size: 1.5rem;
+  }
+
+  .rowDates {
+    grid-column: 2;
+    grid-row: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 0.75rem;
+    align-items: baseline;
+    text-align: left;
+    white-space: normal;
+    font-size: var(--step-small);
+    color: var(--field-muted);
+  }
+
+  .rowBody {
+    grid-column: 2;
+  }
+
+  .toggleRoles {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .highlights li,
+  .story summary,
+  .story summary::after {
+    transition: none;
+  }
+}
+
+.row[hidden] {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .intro {
+    text-align: left;
+  }
+}

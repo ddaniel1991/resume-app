@@ -30,3 +30,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# full-resolution originals of the images in public/images
+/source-images/

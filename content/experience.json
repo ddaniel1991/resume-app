@@ -1,0 +1,117 @@
+[
+  {
+    "id": "auto-data-direct",
+    "company": "Auto Data Direct",
+    "logo": "/images/logos/auto-data-direct.png",
+    "positions": ["Software Engineer"],
+    "location": "Tallahassee, FL",
+    "start": "October 2022",
+    "end": "Present",
+    "highlights": [
+      "Develop and maintain full-stack enterprise systems in Java 17/21, React/Next.js, TypeScript, and C#/.NET across a large multi-application platform.",
+      "Core developer on the ground-up React/TypeScript rewrite of the Electronic Lien & Title (ELT) product: lien-management screens, per-state form validation, address standardization, and A/B-tested beta rollouts across 14 states; used by thousands of lienholders nationwide.",
+      "Launched electronic DMV title integrations for eight new states (PA, WI, CO, IL, MI, KS, SD, IA): built per-state XML mappers and data feeds in Java and C#/.NET, and led the statewide ELT provider switch for Iowa.",
+      "Designed and built the customer-migration flow that onboards lienholders from a competing ELT vendor: React import UI, backend migration routes, bulk lien imports, and data reconciliation.",
+      "Lead development and maintenance of the CarLocate Monitoring Service, which helps rental-car companies track towed vehicles: architected and built its automated VIN-match pipeline — PGP-encrypted SFTP ingestion, matching against public tow/salvage notices in FL, MS, and TX, output distribution, and billing.",
+      "Modernized platform infrastructure: migrated ~20 backend services to updated shared libraries and AWS SDK v2, upgraded services to Java 17, converted a dozen legacy jobs to Kubernetes CronJobs, and moved DMV form generation to Apache PDFBox.",
+      "Improved platform security: re-keyed the company-wide account-restriction system to UUID-based identity across ~10 services, eliminated SQL-injection points, and hardened file-upload and PDF-merge handling (size limits, permission-scoped temp files, memory-bounded PDF merging).",
+      "Delivered internal admin tooling (funds transfers, webinar management, promo-code administration) end to end with permission-guarded REST routes and validated React frontends.",
+      "Own services end to end in production: test-first development with JUnit and Jest, code reviews on every release, AWS and Kubernetes deployments, live troubleshooting, and system documentation.",
+      "Use AI coding agents daily for implementation, test scaffolding, and code review; built an internal MCP server (Node.js/PostgreSQL) that gives agents direct query access to the team’s project-tracking system."
+    ]
+  },
+  {
+    "id": "honeybelle",
+    "alwaysShown": true,
+    "company": "Honeybelle at PGA National Resort",
+    "logo": "/images/logos/honeybelle.png",
+    "positions": ["Server"],
+    "location": "",
+    "start": "January 2022",
+    "end": "May 2022",
+    "highlights": [],
+    "notes": "I joined Honeybelle as part of its opening staff. Those first weeks were chaotic: a new menu, new systems and a front of house still finding its rhythm. I drew on my years of restaurant experience to help set up routines for side work and for communicating with the kitchen, and the floor ran smoother for it. Being there from day one showed me how much it takes to get a new business on its feet."
+  },
+  {
+    "id": "tommy-bahama",
+    "company": "Tommy Bahama",
+    "logo": "/images/logos/tommy-bahama.svg",
+    "positions": ["Server", "Bartender"],
+    "location": "",
+    "start": "January 2021",
+    "end": "February 2022",
+    "highlights": [],
+    "notes": "I worked at Tommy Bahama while taking classes at Palm Beach State College, picking up shifts around my course schedule. It was a busy restaurant and a good way to pay my way through school. The management team changed often while I was there, so I learned to hold my own standards steady no matter who was running the floor."
+  },
+  {
+    "id": "westwood-interior-cleaning",
+    "company": "Westwood Interior Cleaning",
+    "logo": "/images/logos/westwood-interior-cleaning.png",
+    "positions": ["Exterior Maintenance Technician"],
+    "location": "",
+    "start": "June 2018",
+    "end": "July 2020",
+    "highlights": [],
+    "notes": "Working at Westwood was my initial attempt at getting out out of the restaurant industry. I was in charge of maintaining the exteriors of model homes and inventory homes for major homebuilders like Lennar, Meritage and Mattamy. This would involve traveling to various properties in south florida and working out of a trailer to do pressure washing and window cleaning as needed, also replacing light bulbs and ac filters. The company I worked for struggled after the Covid-19 pandemic and had to let go of several people including me. I ended up going back to Duffy's full time."
+  },
+  {
+    "id": "duffys-bar-and-grill",
+    "alwaysShown": true,
+    "company": "Duffy's Bar & Grill",
+    "logo": "/images/logos/duffys-bar-and-grill.png",
+    "positions": ["Server", "Bartender"],
+    "location": "",
+    "start": "August 2017",
+    "end": "January 2021",
+    "highlights": [],
+    "notes": "I worked at Duffy's for about three and a half years, I worked at three different locations and was offered a management position several times. I never accepted any supervisory position because i had no interest in pursuing a career in restaurant management"
+  },
+  {
+    "id": "chilis-bar-and-grill",
+    "company": "Chili's Bar & Grill",
+    "logo": "/images/logos/chilis-bar-and-grill.svg",
+    "positions": ["Bartender", "Server", "Expeditor", "Line Cook"],
+    "location": "",
+    "start": "May 2015",
+    "end": "August 2017",
+    "highlights": [],
+    "notes": "I started working at Chili's as an expeditor, after working there for six months I was promoted to a server position. After being a server for eight months I was promoted to bartender. I worked as a bartender for a little over a year before moving on to a different company"
+  },
+  {
+    "id": "teleperformance",
+    "alwaysShown": true,
+    "company": "Teleperformance",
+    "logo": "/images/logos/teleperformance.svg",
+    "positions": ["Xbox Customer Service Representative"],
+    "location": "",
+    "start": "November 2014",
+    "end": "May 2015",
+    "highlights": [],
+    "notes": "Teleperformance was both the coolest and the toughest job I've had. Saying I worked for Xbox never got old, but call center work is draining: back-to-back calls, tight handle-time targets and a lot of frustrated gamers. I took advantage of unlimited overtime and at one point worked up to 90 hours a week (not recommended). It was also my first real IT experience. Walking customers through connection problems taught me a surprising amount about how networking works: routers, ports, NAT types and why a console can't reach Xbox Live."
+  },
+  {
+    "id": "dunkin-donuts",
+    "alwaysShown": true,
+    "company": "Dunkin’ Donuts",
+    "logo": "/images/logos/dunkin-donuts.png",
+    "positions": ["General Manager", "Shift Leader", "Team Member"],
+    "location": "",
+    "start": "September 2012",
+    "end": "November 2014",
+    "highlights": [
+      "Increased sales 40%+; managed and trained ~20 staff."
+    ],
+    "notes": "When I started working at Dunkin Donuts, it was for the grand opening of a brand-new store. Two weeks after the store opened, I was promoted from a Team Member position to being a Shift Leader. After a year in that position, I was given my own store and promoted to General Manager. After one and a half years in that position, I realized that restaurant management wasn't going to be my career, so I moved on"
+  },
+  {
+    "id": "grandes-bella-cucina",
+    "company": "Grande's Bella Cucina",
+    "logo": "/images/logos/grandes-bella-cucina.png",
+    "positions": ["Expeditor", "Food Runner", "Busser"],
+    "location": "",
+    "start": "November 2008",
+    "end": "May 2012",
+    "highlights": [],
+    "notes": "Grande's was my first job, I started here as a busser when I was 17 years old. I worked my way up to food runner and then eventually became the expeditor for the restaurant. As the expeditor i was in charge of making sure every order reached the table exactly to the customer's specifications and in a timely fashion"
+  }
+]

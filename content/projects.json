@@ -1,0 +1,200 @@
+[
+  {
+    "slug": "lol-app",
+    "name": "LoL App",
+    "summary": "A League of Legends reference with searchable champions and items, a drag-and-drop build tester that recalculates stats and ability damage, and an item guessing game. The live app reads and writes its data in CockroachDB through Prisma.",
+    "demoUrl": "https://lol-app-pi.vercel.app/",
+    "sourceUrl": "https://gitlab.com/davidcodez/lol-app",
+    "image": "/images/lol-app-screenshot.png",
+    "features": [
+      "Champion browser filtered by name, resource type, class, region, species and lane, with detail pages for stats, abilities, tips and lore.",
+      "Item browser filtered by type and stat, with gold cost, parsed stats, unique passives and a build-path tree for each item.",
+      "Build Tester: pick a champion and level, drag items into the build slots, and watch stats and ability damage recalculate.",
+      "Item Game: guess a hidden item as its stats and masked passives are revealed one clue at a time, with a win tally saved in the browser."
+    ],
+    "buildNotes": [
+      "Next.js App Router with REST API routes for champions, items, filters and the item game.",
+      "Prisma over CockroachDB, split into champions, items, lore and public schemas; the schema also runs on PostgreSQL.",
+      "Ability tooltips are resolved from raw game data, and item passives such as Rabadon's, Sterak's and Riftmaker are modelled so the numbers match the game.",
+      "Unit tests in Vitest and end-to-end tests of the item game and build paths in Playwright."
+    ],
+    "stack": [
+      { "name": "Next.js", "icon": "nextjs" },
+      { "name": "React", "icon": "react" },
+      { "name": "TypeScript", "icon": "typescript" },
+      { "name": "Tailwind CSS", "icon": "tailwind" },
+      { "name": "Prisma", "icon": "prisma" },
+      { "name": "PostgreSQL", "icon": "postgresql" },
+      { "name": "CockroachDB", "icon": "cockroachdb" }
+    ]
+  },
+  {
+    "slug": "toni-d-voice-model",
+    "name": "Toni D Voice Model",
+    "summary": "Llama 3.1 8B fine-tuned with QLoRA to write rap lyrics in my own voice, from a dataset built on my roughly 97-song catalog. A Custom GPT given the same data wrote the songs on the Suno playlist.",
+    "demoUrl": "https://suno.com/playlist/e464e6b9-01f2-42b7-bf1e-a1abad6651e5",
+    "demoLabel": "Listen on Suno",
+    "sourceUrl": "https://gitlab.com/davidcodez/toni-d-lyrics",
+    "image": "/images/toni-d-voice-model.jpg",
+    "features": [
+      "Writes verses, hooks and full songs in my style from a short prompt, ready for Suno to render as audio.",
+      "Runs entirely on my own machine: the adapter is converted to GGUF (Q8_0) with llama.cpp and served through Ollama.",
+      "A stylometric evaluation suite scores each output for syllable density, type-token ratio, verbatim memorization and output diversity.",
+      "Rehearsal data (persona prose and general-assistant examples) limits style bleed and keeps the base model's general abilities."
+    ],
+    "buildNotes": [
+      "QLoRA fine-tune (4-bit, r=16) on Kaggle GPUs, with experiments tracked in Weights & Biases and adapters hosted on Hugging Face.",
+      "Dataset pipeline: per-song phonetic, rhyme and structure analysis behind automated audit gates, then named-entity masking, section-marker normalization and prompt diversification, with a song-level train/validation holdout.",
+      "Custom Python tooling, including an AAVE-tuned phoneme mapper for syllable counting and rhyme detection.",
+      "Across three training runs I traced verbatim memorization to high-frequency completions, corrected syllable-density drift and overfitting, and fixed a TRL / Llama 3.1 chat-template loss-masking mismatch. Memorization is reduced, not eliminated.",
+      "Lyrics, analyses and training pairs live in Supabase (PostgreSQL).",
+      "The small model was promising, so I gave a frontier model the same data by compiling it into a Custom GPT (a feature OpenAI has since retired). Its songs were much stronger, and they are the ones on the Suno playlist."
+    ],
+    "stack": [
+      { "name": "Python", "icon": "python" },
+      { "name": "PyTorch", "icon": "pytorch" },
+      { "name": "Hugging Face", "icon": "huggingface" },
+      { "name": "Llama 3.1", "icon": "meta" },
+      { "name": "Kaggle", "icon": "kaggle" },
+      { "name": "Weights & Biases", "icon": "wandb" },
+      { "name": "Supabase", "icon": "supabase" },
+      { "name": "Ollama", "icon": "ollama" }
+    ]
+  },
+  {
+    "slug": "gpt-app",
+    "name": "GPT App",
+    "summary": "My barebones attempt at a custom AI harness: an Electron desktop app where a model can search, read and patch code in a local workspace, with every change waiting on my approval.",
+    "sourceUrl": "https://gitlab.com/davidcodez/gpt-app",
+    "image": "/images/gpt-app.jpg",
+    "features": [
+      "Chat with any OpenAI-compatible endpoint, or a local or remote Ollama model.",
+      "Workspace tools for searching, reading and patching code, running commands and basic git.",
+      "Mutating tools pause for approval; a read-only planning mode turns them off entirely.",
+      "Context management keeps long sessions inside the model's window: a byte budget, older turns summarized when it fills, and code pulled in on demand from a local semantic index instead of whole files."
+    ],
+    "buildNotes": [
+      "Every model call is held to a byte budget. Old tool output is trimmed first and replaced with a marked stub, so the model knows something was removed rather than seeing it silently disappear.",
+      "Near 80% of that budget, an optional summarizer condenses older turns while the latest turn stays intact; if the summary fails, times out or comes back empty, the full history is kept.",
+      "A retrieve_code_context tool searches a per-workspace embeddings index (sqlite-vec, overlapping line chunks). A manifest records the model, dimensions and readiness, and queries refuse to run against a stale or half-built index.",
+      "Single tool results are capped at about 100 KB, and project notes and skills are added to the system prompt once, on the first message, each under its own size limit.",
+      "API keys and model calls stay in Electron's main process; the renderer only talks to it through a narrow preload bridge.",
+      "Covered by a Node test suite and a few Playwright end-to-end checks."
+    ],
+    "stack": [
+      { "name": "Electron", "icon": "electron" },
+      { "name": "Node.js", "icon": "nodejs" },
+      { "name": "Ollama", "icon": "ollama" },
+      { "name": "SQLite", "icon": "sqlite" },
+      { "name": "MCP", "icon": "mcp" }
+    ]
+  },
+  {
+    "slug": "mtg-rules-engine",
+    "name": "MTG Rules Engine",
+    "current": true,
+    "summary": "A Magic: The Gathering rules engine in Rust, built as the training environment for a reinforcement learning model that will learn to play the game. It loads real cards and plays the opponent with a heuristic AI; it is still under construction, and training starts once it is complete.",
+    "sourceUrl": "https://gitlab.com/davidcodez/mtg_rules_engine",
+    "image": "/images/mtg-rules-engine.jpg",
+    "features": [
+      "The Comprehensive Rules implemented as functions over the game state: casting, the stack, combat, layers and state-based actions.",
+      "Real cards from Scryfall Oracle data, with card scripts from Card Forge, the open-source Magic engine, translated into a typed effect representation; about half of the scripted Standard and Commander cards translate clean so far.",
+      "The opponent is a Rust port of Card Forge's heuristic AI, covering board evaluation, priority, combat and mulligans.",
+      "A Gymnasium-compatible Python environment with a dynamic list of legal actions, where a spell that needs modes, targets, X or divided damage is broken into choices in rule order."
+    ],
+    "buildNotes": [
+      "Target scope is two-player Standard and two- or four-player Commander.",
+      "Credit to Card Forge: its card scripts are vendored under GPLv3 with attribution, and its script format and AI are the basis for the engine's card behaviour and opponent. I built a new engine rather than training on Forge itself because of Rust: games run as native code with no garbage-collector pauses, so the trainer can play huge numbers of them quickly; the compiler rules out whole classes of memory and data-race bugs; and PyO3 loads the engine straight into Python as an extension module, with no JVM to run alongside.",
+      "PyO3 bindings expose the engine to Python, and a custom PPO trainer in PyTorch is ready to train against the heuristic opponent.",
+      "The merge gate runs about 2,800 unit tests and 2,400 integration tests with fmt and clippy clean, and 500 seeded games must replay identically.",
+      "A card counts as clean only when it translates without warnings and every ability, keyword and condition either works or is refused by name. Tightening that rule removed thousands of cards that had been counted as working while doing nothing.",
+      "The card database is built from pinned inputs, compiled twice and required to come out byte-identical."
+    ],
+    "stack": [
+      { "name": "Rust", "icon": "rust" },
+      { "name": "Python", "icon": "python" },
+      { "name": "PyTorch", "icon": "pytorch" }
+    ]
+  },
+  {
+    "slug": "to-do-list",
+    "name": "To Do List",
+    "summary": "A keyboard-friendly task list built with React 19 and TypeScript. Tasks are saved in the browser, mistakes can be undone, and it follows your system's light or dark theme.",
+    "demoUrl": "https://to-do-list-app-mu.vercel.app/",
+    "sourceUrl": "https://github.com/david-codez/ToDo-List-App",
+    "image": "/images/to-do-list-screenshot.png",
+    "features": [
+      "Add, edit, complete and delete tasks, then filter by All, Active or Done with live counts and a progress bar.",
+      "Undo after deleting a task, clearing completed tasks or clearing the whole list.",
+      "Fully keyboard operable: Enter edits, Space toggles, Delete removes and Escape cancels.",
+      "Light, dark or match-system theme, with no flash on load."
+    ],
+    "buildNotes": [
+      "One pure reducer owns every task change, so the core behaviour is unit-tested without React or the browser.",
+      "Undo restores tasks by their original position, so a task added between the delete and the undo is never lost.",
+      "Storage goes through a wrapper that never throws; saved data is versioned and validated when it loads.",
+      "No UI framework: one stylesheet built on custom properties, so the dark theme is a token swap."
+    ],
+    "stack": [
+      { "name": "React", "icon": "react" },
+      { "name": "TypeScript", "icon": "typescript" },
+      { "name": "Vite", "icon": "vite" },
+      { "name": "Vitest", "icon": "vitest" },
+      { "name": "CSS", "icon": "css" }
+    ]
+  },
+  {
+    "slug": "pokedex",
+    "name": "Pokedex",
+    "summary": "A Pokédex browser that looks up a Pokémon and shows its artwork and stats, built in React with Bootstrap and Sass.",
+    "demoUrl": "https://pokedex-mu-nine-85.vercel.app",
+    "sourceUrl": "https://github.com/david-codez/pokedex",
+    "image": "/images/pokedex-screenshot.png",
+    "features": [
+      "Look up any Pokémon from #1 to #905 by number, or step through them with the previous and next arrows.",
+      "Each entry shows the official artwork, its types, its category and the English Pokédex description.",
+      "Height and weight in both imperial and metric, and base stats drawn as bars against the maximum of 255.",
+      "Clear error messages for an invalid number, the ends of the list, or a failed request."
+    ],
+    "buildNotes": [
+      "Data comes live from PokeAPI; the Pokémon and its species record are fetched in parallel.",
+      "Description text is cleaned of the game's control characters before it is shown.",
+      "Unit conversions and text cleanup live in plain functions with their own tests."
+    ],
+    "stack": [
+      { "name": "HTML5", "icon": "html" },
+      { "name": "CSS", "icon": "css" },
+      { "name": "Bootstrap", "icon": "bootstrap" },
+      { "name": "JavaScript", "icon": "javascript" },
+      { "name": "React", "icon": "react" },
+      { "name": "Sass", "icon": "sass" }
+    ]
+  },
+  {
+    "slug": "hangman",
+    "name": "Hangman",
+    "summary": "A hangman word game with an on-screen keyboard and a drawn gallows, built with React and Next.js.",
+    "demoUrl": "https://hangman-woad.vercel.app",
+    "sourceUrl": "https://github.com/david-codez/hangman",
+    "image": "/images/hangman-screenshot.png",
+    "features": [
+      "Eight word categories, from Animals and Countries to Musical Instruments; Any picks a category first so the large General list doesn't crowd out the rest.",
+      "Multi-word answers like Costa Rica, with spaces, hyphens and apostrophes shown from the start.",
+      "Guess with the on-screen keys or your keyboard; correct letters turn green, wrong ones red, and missed letters are revealed when you lose.",
+      "A scoreboard of wins, losses and best streak saved in the browser, with a Reset button."
+    ],
+    "buildNotes": [
+      "Game rules and stats live in plain modules apart from the UI, tested with Node's built-in test runner.",
+      "Words are served by a Next.js API route from a categorised word bank.",
+      "Light and dark mode follow the system setting."
+    ],
+    "stack": [
+      { "name": "HTML5", "icon": "html" },
+      { "name": "CSS", "icon": "css" },
+      { "name": "Bootstrap", "icon": "bootstrap" },
+      { "name": "JavaScript", "icon": "javascript" },
+      { "name": "React", "icon": "react" },
+      { "name": "Next.js", "icon": "nextjs" }
+    ]
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "name": "David Daniel",
+  "title": "Software Engineer",
+  "location": "Tallahassee, FL",
+  "tagline": "I build scalable, reliable systems, from the backend services and APIs underneath to the interfaces people use every day.",
+  "email": "david.augustin10@gmail.com",
+  "summary": "Full-stack software engineer with four years building, testing, and operating enterprise systems in Java, React/Next.js, TypeScript, C#/.NET, PostgreSQL, and MongoDB across a large multi-application platform. Owns services end to end — design, test-first development, AWS/Kubernetes deployment, and production support — and builds AI-assisted engineering tooling used daily. Strong focus on backend services, API integrations, database performance, legacy modernization, and reliable delivery.",
+  "earlierExperienceIntro": "Before I wrote code, I spent 14 years in restaurants and customer service: running food at an Italian trattoria, managing a Dunkin’, taking Xbox support calls and working packed bars on Friday nights. Most engineers come to the job straight from a classroom. My path ran through busy dining rooms, where I learned to stay calm when everything lands at once, to explain a problem to someone who is frustrated, and to care whether the person on the other end leaves happy. That is the background I bring to every system I build: I build for the people who use it, and I do my best work under pressure.",
+  "headshot": "/images/headshot-suit.jpg",
+  "resumePdf": "/David_Daniel_Resume.pdf",
+  "social": [
+    { "label": "GitLab", "url": "https://gitlab.com/davidcodez", "icon": "gitlab" },
+    { "label": "GitHub", "url": "https://github.com/david-codez", "icon": "github" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/davidcodez/", "icon": "linkedin" }
+  ]
+}
